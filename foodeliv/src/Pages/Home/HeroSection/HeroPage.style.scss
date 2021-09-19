@@ -7,7 +7,7 @@
         .HeroImageContainer {
              :nth-child(1) {
                 width: 800px !important;
-                animation: rotate infinite 120s linear;
+                animation: rotate infinite 180s linear;
             }
         }
         .SloganContainer {
@@ -18,7 +18,7 @@
             .Slogan {
                 font-family: Soopafresh;
                 letter-spacing: 2px;
-                font-size: xx-large;
+                font-size: 4ch;
                 color: #343434;
             }
         }
