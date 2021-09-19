@@ -1,0 +1,39 @@
+.TopBarContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    .LogoContainer {
+        display: flex;
+        flex-direction: row;
+        margin-left: 10ch;
+         :nth-child(1) {
+            color: #FB7E00;
+            font-family: Comfortaa;
+            font-size: x-large;
+        }
+         :nth-child(2) {
+            color: #3fa34d;
+            font-family: Comfortaa;
+            font-size: x-large;
+        }
+    }
+    .NavigationLinks {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 5ch;
+        justify-content: right;
+        margin-right: 10ch;
+        .NavLink {
+            display: flex;
+            flex-direction: column;
+            .HoverLine {
+                display: none;
+            }
+            &:hover {
+                .HoverLine {
+                    display: block;
+                }
+            }
+        }
+    }
+}

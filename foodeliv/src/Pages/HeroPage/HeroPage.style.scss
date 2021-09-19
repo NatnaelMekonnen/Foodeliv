@@ -1,0 +1,35 @@
+.HeroPage {
+    background-image: url(../../Assets/Images/Group.svg);
+    background-repeat: repeat;
+    .HeroContainer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        .HeroImageContainer {
+             :nth-child(1) {
+                width: 800px !important;
+                animation: rotate infinite 120s linear;
+            }
+        }
+        .SloganContainer {
+            background: local;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            .Slogan {
+                font-family: Soopafresh;
+                letter-spacing: 2px;
+                font-size: xx-large;
+                color: #343434;
+            }
+        }
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
