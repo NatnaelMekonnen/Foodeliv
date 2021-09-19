@@ -1,10 +1,10 @@
 import './App.css';
-import HeroPage from './Pages/HeroPage/HeroPage.component';
+import HomePage from './Pages/Home/HomePage.Page';
 
 const App = () => {
   return (
     <div>
-      <HeroPage />
+      <HomePage />
     </div>
   )
 }
