@@ -26,6 +26,9 @@ const HeroPage = () => {
                                 color: '#f5f5f5',
                                 padding: '1ch 6ch 1ch 6ch',
                                 marginBottom: '5ch',
+                                '&:hover': {
+                                    backgroundColor: '#ffffff',
+                                }
                             }}
                         >
                             Order Now

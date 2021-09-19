@@ -1,0 +1,17 @@
+.OtherInfo {
+    height: 100vh;
+    background-image: url(../../../Assets/Images/Group.svg);
+    background-repeat: repeat;
+    .PricingContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 70%;
+        background-color: #fbb00031;
+         :nth-child(1) {
+            font-size: 8ch;
+            color: #FB7E00;
+            font-weight: bolder;
+        }
+    }
+}

@@ -1,7 +1,6 @@
-import { Typography } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import React from 'react';
 import './TopBar.style.scss';
-import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import line from '../../Assets/Images/line.svg';
 
 const TopBar = () => {
@@ -12,10 +11,17 @@ const TopBar = () => {
                 <h3>deliv</h3>
             </div>
             <div className='NavigationLinks'>
-                <div className='NavLink'><Typography>Foods</Typography><img className='HoverLine' src={line} alt='' /></div>
-                <div className='NavLink'><Typography>Drinks</Typography><img className='HoverLine' src={line} alt='' /></div>
-                <div className='NavLink'><Typography>Restaurants</Typography><img className='HoverLine' src={line} alt='' /></div>
-                <AccountCircleRoundedIcon />
+                <div className='NavLink'><Typography><a href='/Foods'>Foods</a></Typography><img className='HoverLine' src={line} alt='' /></div>
+                <div className='NavLink'><Typography><a href='/Drinks'>Drinks</a></Typography><img className='HoverLine' src={line} alt='' /></div>
+                <div className='NavLink'><Typography><a href='/Restaurants'>Restaurants</a></Typography><img className='HoverLine' src={line} alt='' /></div>
+                <Button
+                    style={{
+                        backgroundColor: '#FB7E00',
+                        color: 'white'
+                    }}
+                >
+                    Sign Up
+                </Button>
             </div>
         </div>
     )
