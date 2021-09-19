@@ -1,7 +1,7 @@
 import { Button } from '@mui/material';
 import React from 'react';
-import Pizza from '../../Assets/Images/pizza.png'
-import TopBar from '../../Components/TopBar/TopBar.component';
+import Pizza from '../../../Assets/Images/pizza.png'
+import TopBar from '../../../Components/TopBar/TopBar.component';
 import './HeroPage.style.scss';
 
 const HeroPage = () => {
