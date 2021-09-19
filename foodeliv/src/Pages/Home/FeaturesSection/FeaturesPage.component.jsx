@@ -16,11 +16,11 @@ const FeaturesPage = () => {
                 <img className='Map' src={MapPin} alt='' />
                 <Typography>View Restaurants Near You</Typography>
             </div>
-            <div data-aos="fade-up" data-aos-delay='300' className='Card'>
+            <div data-aos="fade-up" className='Card'>
                 <div className='RestaurantSvg'><img src={Spoon} alt='' /><img src={Fork} alt='' /><img src={Knife} alt='' /></div>
                 <Typography>Choose from varies dishes and beverages</Typography>
             </div>
-            <div data-aos="fade-up" data-aos-delay='600' className='Card'>
+            <div data-aos="fade-up" className='Card'>
                 <img className='Time' src={Time} alt='' />
                 <Typography>Order instantly or Schedule delivery</Typography>
             </div>
