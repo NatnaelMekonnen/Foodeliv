@@ -1,36 +1,29 @@
-import React from 'react';
-import { MenuItem, InputLabel, Select, FormHelperText } from '@mui/material';
-import { useField, useFormikContext } from 'formik';
-import { FormControl } from '@mui/material';
+import React, { useState } from "react";
+import { MenuItem, InputLabel, Select, FormHelperText } from "@mui/material";
+import { useField, useFormikContext } from "formik";
+import { FormControl } from "@mui/material";
 
-const SelectWrapper = ({
-    name,
-    label,
-    options,
-    ...otherProps
-}) => {
+const SelectWrapper = ({ name, label, options, ...otherProps }) => {
     const { setFieldValue } = useFormikContext();
-    const [field, meta] = useField(name);
+    const [field] = useField(name);
+    const [isError, setError] = useState(false);
 
-    const handleChange = evt => {
+    const handleChange = (evt) => {
         const { value } = evt.target;
         setFieldValue(name, value);
     };
 
     const configControl = {
         fullWidth: true,
-        variant: "outlined"
-    }
-    let errorMessage = null;
+        variant: "outlined",
+    };
 
-    const handleBlur = evt => {
-        // const { value } = evt.target;
-        // if (value === '') {
-        //     configControl.error = true;
-        //     errorMessage = "Dosage Form is Required";
-        //     console.log("ERROR")
-        // }
-    }
+    const handleBlur = (evt) => {
+        const { value } = evt.target;
+        if (!value) {
+            setError(true);
+        }
+    };
 
     const configSelect = {
         ...field,
@@ -39,37 +32,33 @@ const SelectWrapper = ({
         onBlur: handleBlur,
     };
 
-    if (meta && meta.touched && meta.error) {
-        configSelect.error = true;
-        errorMessage = meta.error;
-        configControl.error = true;
-    }
-
     return (
-        <FormControl {...configControl}>
-            <InputLabel>{label}</InputLabel>
+        <FormControl {...configControl} error={isError}>
+            <InputLabel style={{ backgroundColor: "white" }}>
+                {label}
+            </InputLabel>
             <Select
                 {...configSelect}
                 inputProps={{
-                    name: '',
-                    id: 'outlined-age-native-simple',
+                    name: "",
                 }}
                 MenuProps={{
-                    style: { zIndex: 35001 }
+                    style: { zIndex: 35001 },
                 }}
             >
                 {Object.keys(options).map((item, pos) => {
                     return (
-                        <MenuItem
-                            key={pos}
-                            value={item}
-                        >
+                        <MenuItem key={pos} value={item}>
                             {options[item]}
                         </MenuItem>
-                    )
+                    );
                 })}
             </Select>
-            <FormHelperText style={{ color: 'red' }}>{errorMessage}</FormHelperText>
+            {isError && (
+                <FormHelperText style={{ color: "red" }}>
+                    Required*
+                </FormHelperText>
+            )}
         </FormControl>
     );
 };
