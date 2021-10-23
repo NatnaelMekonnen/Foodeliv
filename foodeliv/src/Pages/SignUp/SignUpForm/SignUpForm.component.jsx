@@ -1,11 +1,19 @@
 import React from "react";
 import * as Yup from "yup";
-import TextFieldWrapper from "../../../Components/TextFieldWrapper/Textfield.component";
-import SelectFieldWrapper from "../../../Components/SelectFieldWrapper/Select.component";
 import { Button, InputLabel } from "@mui/material";
 import { Form, Formik } from "formik";
+import { useMutation } from "@apollo/client";
+
+import SelectFieldWrapper from "../../../Components/SelectFieldWrapper/Select.component";
+import TextFieldWrapper from "../../../Components/TextFieldWrapper/Textfield.component";
+import SIGNUP_MUTATION from "./signUpMutation";
 
 const SignUpForm = () => {
+    //-----------------------------------------MUTATION-------------------------------------------------------------
+    const [signUpMutation, { data, loading, error }] =
+        useMutation(SIGNUP_MUTATION);
+
+    //--------------------------------------------------------------------------------------------------------------
     let strongPass =
         "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})";
     let mediumPass =
@@ -66,8 +74,13 @@ const SignUpForm = () => {
             initialValues={{ ...INITIAL_VALUES }}
             validationSchema={FORM_VALIDATION}
             onSubmit={(values, actions) => {
-                console.log(values);
-                actions.resetForm();
+                try {
+                    signUpMutation({ variables: { values } });
+                    console.log(data);
+                } catch (error) {
+                    throw new Error("Not Registerd");
+                }
+                // actions.resetForm();
             }}
         >
             {(props) => (
