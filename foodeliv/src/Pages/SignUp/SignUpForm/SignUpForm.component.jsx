@@ -75,8 +75,8 @@ const SignUpForm = () => {
             validationSchema={FORM_VALIDATION}
             onSubmit={(values, actions) => {
                 try {
-                    signUpMutation({ variables: { values } });
-                    console.log(data);
+                    const userIn = values;
+                    signUpMutation({ variables: { userIn } });
                 } catch (error) {
                     throw new Error("Not Registerd");
                 }
