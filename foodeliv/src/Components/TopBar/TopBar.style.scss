@@ -5,15 +5,17 @@
         display: flex;
         flex-direction: row;
         margin-left: 10ch;
-         :nth-child(1) {
-            color: #FB7E00;
+        :nth-child(1) {
+            color: #fb7e00;
             font-family: Comfortaa;
             font-size: x-large;
+            cursor: pointer;
         }
-         :nth-child(2) {
+        :nth-child(2) {
             color: #3fa34d;
             font-family: Comfortaa;
             font-size: x-large;
+            cursor: pointer;
         }
     }
     .NavigationLinks {
@@ -26,6 +28,7 @@
         .NavLink {
             display: flex;
             flex-direction: column;
+            cursor: pointer;
             .HoverLine {
                 display: none;
             }
@@ -37,7 +40,7 @@
         }
     }
 }
-a{
+a {
     text-decoration: none;
     color: inherit;
 }
