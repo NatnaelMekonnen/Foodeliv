@@ -5,13 +5,19 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { store } from "./Redux/Store";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { createUploadLink } from "apollo-upload-client";
 
 import App from "./App.component";
 import "./index.css";
 
-const client = new ApolloClient({
+const link = createUploadLink({
     uri: "http://localhost:4000",
+    // credentials: "include",
+});
+
+const client = new ApolloClient({
     cache: new InMemoryCache(),
+    link,
 });
 
 ReactDOM.render(

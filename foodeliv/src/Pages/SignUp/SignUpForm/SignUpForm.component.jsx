@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as Yup from "yup";
 import { Button, InputLabel } from "@mui/material";
 import { Form, Formik } from "formik";
@@ -74,13 +74,9 @@ const SignUpForm = () => {
             initialValues={{ ...INITIAL_VALUES }}
             validationSchema={FORM_VALIDATION}
             onSubmit={(values, actions) => {
-                try {
-                    const userIn = values;
-                    signUpMutation({ variables: { userIn } });
-                } catch (error) {
-                    throw new Error("Not Registerd");
-                }
-                // actions.resetForm();
+                const userIn = values;
+                signUpMutation({ variables: { userIn } });
+                actions.resetForm();
             }}
         >
             {(props) => (
